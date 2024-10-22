@@ -1,0 +1,34 @@
+import React from 'react'
+import Header from '../components/Header'
+import Slider from '../components/Carousel'
+import Card from '../components/common/Card'
+import FeatureCat from '../components/FeatureCat'
+import FeatureProduct from '../components/FeatureProduct'
+import FlashSale from '../components/FlashSale'
+import NewArrivals from '../components/NewArrivals'
+import Footer from '../components/Footer'
+
+const Home = () => {
+  return (
+    <div>
+        <Header/>
+        <Slider/>
+        <div className='flex flex-wrap'>
+        <Card/>
+        </div>
+       <div className='flex '>
+       <FeatureCat/>
+       </div>
+       <div className='flex bg-white'>
+        <FeatureProduct/>
+       </div>
+       <div>
+       <FlashSale/>
+       </div>
+       <NewArrivals/>
+       <Footer/>
+    </div>
+  )
+}
+
+export default Home
