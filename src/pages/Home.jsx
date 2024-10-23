@@ -11,9 +11,9 @@ import Footer from '../components/Footer'
 const Home = () => {
   return (
     <div>
-        <Header/>
+        <Header/>    
         <Slider/>
-        <div className='flex flex-wrap'>
+        <div className=''>
         <Card/>
         </div>
        <div className='flex '>
@@ -22,7 +22,7 @@ const Home = () => {
        <div className='flex bg-white'>
         <FeatureProduct/>
        </div>
-       <div>
+       <div className='flex justify-center items-center'>
        <FlashSale/>
        </div>
        <NewArrivals/>

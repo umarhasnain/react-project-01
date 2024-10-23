@@ -2,7 +2,8 @@ import React from 'react';
 import { Carousel } from 'antd';
 const contentStyle = {
   margin: 0,
-  height: '460px',
+  height: 'auto',
+  width:"auto",
   color: '#fff',
   lineHeight: '160px',
   textAlign: 'center',
@@ -12,8 +13,8 @@ const Slider = () => {
   const onChange = (currentSlide) => {
   };
   return (
-   <div>
-     <Carousel afterChange={onChange}>
+   <div className='h-auto'>
+     <Carousel autoplay afterChange={onChange}>
       <div>
         <h3 style={contentStyle}><img src="https://chawkbazar.vercel.app/_next/image?url=%2Fassets%2Fimages%2Fhero%2Fbanner-5.jpg&w=3840&q=100" alt="" /></h3>
       </div>

@@ -1,11 +1,23 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import Button from '../components/common/Button'
+import Modal from './common/Modal';
+
 
 const FeatureProduct = () => {
     const [isloading, setisloading] = useState(false);
 
     const [product ,setProduct] = useState([])
-console.log(product);
+
+    const [openModal, setOpenModal] = useState(false)
+
+    const [modalId ,setmodalId] = useState(0)
+
+//Update Modal ID
+    const modalIdUpdate = (id) => {
+      setmodalId(id)
+    }
+
 
      // Get Data from the API
   const getData = async () => {
@@ -14,7 +26,7 @@ console.log(product);
       const data = await axios.get("https://fakestoreapi.com/products");
       const res = data?.data;
       setProduct(res);
-      console.log(res);
+      
       
       setisloading(false);
     //   const categories = [...new Set(res.map((item) => item.category))];
@@ -26,32 +38,44 @@ console.log(product);
     }
   };
 
+  //Open Modl Func
+
+  const hanleClick = () => {
+    setOpenModal(true)
+    console.log("okh");
+    
+  }
+
   // Manage Effect Events
   useEffect(() => {
     getData();
   }, []);
   return (
-      <div className=''>
+      <div>
         <h1 className="text-center text-2xl font-bold mb-12">Featured Products</h1>
+       <Modal product={product} modalId={modalId} openModal={openModal} setOpenModal={setOpenModal} />
 
-     <div className='flex justify-evenly items-center flex-wrap'>
+     <div  className='flex justify-evenly items-center flex-wrap'>
      {
-        isloading ? (
-          <h1>Loading...</h1>
-        ) : (
+      
             
-          product.slice(0, 6).map((item) => (
-            <div className='bg-slate-100 w-[350px] m-4 rounded-xl' >
+          product.slice(0, 6).map((item) => {
+            const {id, image,title,price}  = item
+            // console.log(item)
+            return (
+              <div className='bg-slate-100 w-[350px] m-4 rounded-xl' >
             
-            <div key={item.id} className='flex justify-center items-center flex-col gap-4 p-4'>
-              <img className='h-[250px] w-[250px] rounded ' src={item.image} alt={item.title} />
-            <h3 className='w-[300px]'>{item.title}</h3>
-              <p>${item.price}</p>
+            <div key={id} className='flex justify-center items-center flex-col gap-4 p-4'>
+              <img className='h-[250px] w-[250px] rounded ' src={image} alt={title} />
+            <h3 className='w-[300px]'>{title}</h3>
+              <p>${price}</p>
+              <button key={id} className='w-[110px] h-[35px] bg-orange-600 rounded-lg text-white' onClick={()=> modalIdUpdate(id) + hanleClick()}>Click me</button>
+              {/* <Button data='Read More' onClick={()=> console.log("horh h")} /> */}
             </div>
              </div>
-          
-          ))
-        )
+            )
+          })
+        
       }
      </div>
     </div>

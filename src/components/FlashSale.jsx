@@ -55,7 +55,7 @@ const FlashSale = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-[85%]">
       <h1 className="text-center text-2xl font-bold mb-12 mt-12">Flash Sale</h1>
 
       {/* If loading, show loading message */}
