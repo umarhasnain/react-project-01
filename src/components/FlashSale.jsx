@@ -3,10 +3,20 @@ import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css'; 
 import 'slick-carousel/slick/slick-theme.css'; 
+import Modal from '../components/common/Modal'
 
 const FlashSale = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [product, setProduct] = useState([]);
+  const [openModal, setOpenModal] = useState(false)
+
+    const [modalId ,setmodalId] = useState(0)
+
+    //Update Modal ID
+    const modalIdUpdate = (id) => {
+      setmodalId(id)
+    }
+
 
   // Fetch data from the API
   const getData = async () => {
@@ -21,6 +31,13 @@ const FlashSale = () => {
       setIsLoading(false);
     }
   };
+  //Open Modl Func
+
+  const hanleClick = () => {
+    setOpenModal(true)
+    console.log("okh");
+    
+  }
 
   // Trigger data fetching on component mount
   useEffect(() => {
@@ -57,6 +74,8 @@ const FlashSale = () => {
   return (
     <div className="w-[85%]">
       <h1 className="text-center text-2xl font-bold mb-12 mt-12">Flash Sale</h1>
+      <Modal product={product} modalId={modalId} openModal={openModal} setOpenModal={setOpenModal} />
+
 
       {/* If loading, show loading message */}
       {isLoading ? (
@@ -66,8 +85,8 @@ const FlashSale = () => {
           {product.slice(7, 14).map((item) => (
             <div key={item.id} className="p-4">
               <div className="bg-slate-100 rounded-xl flex flex-col items-center p-4">
-                <img className="h-[250px] w-[250px] object-cover rounded" src={item.image} alt={item.title} />
-                <h3 className="w-[300px] text-center mt-4 mb-2">{item.title}</h3>
+                <img key={item.id} onClick={()=> modalIdUpdate(item.id) + hanleClick()} className="h-[250px] w-[250px] object-cover rounded" src={item.image} alt={item.title} />
+                <h3 className="w-[300px] truncate text-center mt-4 mb-2 p-2">{item.title}</h3>
                 <p className="text-lg font-semibold">${item.price}</p>
               </div>
             </div>

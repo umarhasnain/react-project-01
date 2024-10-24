@@ -65,11 +65,14 @@ const FeatureProduct = () => {
             return (
               <div className='bg-slate-100 w-[350px] m-4 rounded-xl' >
             
-            <div key={id} className='flex justify-center items-center flex-col gap-4 p-4'>
+            <div key={id} className='flex justify-center  flex-col gap-4 p-4'>
               <img className='h-[250px] w-[250px] rounded ' src={image} alt={title} />
-            <h3 className='w-[300px]'>{title}</h3>
-              <p>${price}</p>
-              <button key={id} className='w-[110px] h-[35px] bg-orange-600 rounded-lg text-white' onClick={()=> modalIdUpdate(id) + hanleClick()}>Click me</button>
+            <h3 className='w-[250px] truncate'><strong>Tittle: </strong>{title}</h3>
+              <p><strong>Price: </strong>${price}</p>
+              <div className='flex justify-center items-center'>
+              <button key={id} className='w-[110px] h-[35px] bg-orange-600 rounded-lg text-white ' onClick={()=> modalIdUpdate(id) + hanleClick()}>Click me</button>
+
+              </div>
               {/* <Button data='Read More' onClick={()=> console.log("horh h")} /> */}
             </div>
              </div>
