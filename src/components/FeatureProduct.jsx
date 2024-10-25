@@ -70,7 +70,7 @@ const FeatureProduct = () => {
             <h3 className='w-[250px] truncate'><strong>Tittle: </strong>{title}</h3>
               <p><strong>Price: </strong>${price}</p>
               <div className='flex justify-center items-center'>
-              <button key={id} className='w-[110px] h-[35px] bg-orange-600 rounded-lg text-white ' onClick={()=> modalIdUpdate(id) + hanleClick()}>Click me</button>
+              <button key={id} className='w-[110px] h-[35px] bg-orange-600 rounded-lg text-white ' onClick={()=> modalIdUpdate(id) + hanleClick()}>Read More</button>
 
               </div>
               {/* <Button data='Read More' onClick={()=> console.log("horh h")} /> */}

@@ -89,14 +89,16 @@ console.log(anchorElUser)
               onClose={handleCloseNavMenu}
               sx={{ display: { xs: 'block', md: 'none' } }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <ul>
-                    <li>{page}</li>
-                  </ul>
-                  {/* <Typography sx={{ textAlign: 'center' }}>{page}</Typography> */}
-                </MenuItem>    
-              ))}
+              <div className='p-2'>
+
+             <ul className='p-2 text-xl'>
+              <Link to="/home"><li className='m-2'>Home</li> </Link>
+              <Link to="/about"><li className='m-2'>About</li> </Link>
+              <Link to="/products"><li className='m-2'>Product</li> </Link>
+              <Link to="/contact"><li className='m-2'>Contact Us</li> </Link>
+              
+             </ul>
+              </div>
             </Menu>
           </Box>
           <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />

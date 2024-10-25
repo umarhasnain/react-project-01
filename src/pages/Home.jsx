@@ -7,6 +7,7 @@ import FeatureProduct from '../components/FeatureProduct'
 import FlashSale from '../components/FlashSale'
 import NewArrivals from '../components/NewArrivals'
 import Footer from '../components/Footer'
+import AllProducts from '../components/AllProducts'
 
 const Home = () => {
   return (
@@ -26,6 +27,7 @@ const Home = () => {
        <FlashSale/>
        </div>
        <NewArrivals/>
+       <AllProducts/>
        <Footer/>
     </div>
   )

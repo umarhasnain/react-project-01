@@ -9,7 +9,7 @@
         tittle:'GET 30% OFF ON KIDS COLLECTION',
         dis:'GRAB IT NOW',
         linkDis:'Go to Collection -->',
-        img:'./assets/imgs/card1.png'
+        img:'./assets/imgs/card12.png'
     },
     
  ]

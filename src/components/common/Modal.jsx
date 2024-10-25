@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import { IoMdCloseCircle } from "react-icons/io";
 
-const Modal = ({ openModal, setOpenModal, modalId, product }) => {
-  const singleData = product.find((e) => {
+const Modal = ({ openModal, setOpenModal, modalId, product}) => {
+  const singleData =  product.find((e) => {
     return e.id === modalId;
   });
 
   console.log(singleData);
+  console.log(modalId, singleData);
+  
   
 
   return (
