@@ -6,8 +6,9 @@ const MainContext = createContext();
 const ProductProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [isloading, setisloading] = useState(false);
+  const [fakeAPI , setFakeAPI] = useState([]);
 
-console.log(products);
+console.log(fakeAPI);
 
   const getData = async () => {
     setisloading(true);
@@ -17,7 +18,7 @@ console.log(products);
       const data1 = await axios.get("https://api.escuelajs.co/api/v1/products");
       const res1 = data1?.data;
       const combinedArray = [...res, ...res1];
-     
+      setFakeAPI(res)
       console.log(combinedArray);
       
       setProducts(combinedArray);
@@ -38,7 +39,7 @@ console.log(products);
   }, []);
 
   return (
-    <MainContext.Provider value={{ products, setProducts }}>
+    <MainContext.Provider value={{ products, setProducts ,fakeAPI}}>
       {children}
     </MainContext.Provider>
   );
