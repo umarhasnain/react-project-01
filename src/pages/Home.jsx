@@ -8,7 +8,6 @@ import FlashSale from '../components/FlashSale'
 import NewArrivals from '../components/NewArrivals'
 import Footer from '../components/Footer'
 import AllProducts from '../components/AllProducts'
-import Animation from '../components/common/Animation'
 
 const Home = () => {
   return (
